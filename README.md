@@ -57,7 +57,7 @@ Solve the supply and demand curve. Here, supply is the number of bikes in a stat
 ## Dataset Summary
 Here is a summary of the datasets used in the project:
 
-    BIXI - Movements history
+    BIXI - Movements history 2017
         Total row: ~4018722
         Column: 6
         Features: start_date, start_station_code ,end_date , end_station_code, duration_sec, is_member
