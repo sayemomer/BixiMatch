@@ -69,63 +69,22 @@ Here is a summary of the datasets used in the project:
         Features: 30 US & Canadian Cities + 6 Israeli Cities
         Source: [https://www.kaggle.com/datasets/mahmoudima/mma-facial-expression](https://www.kaggle.com/datasets/selfishgene/historical-hourly-weather-data)
 
-## Images/Class Distribution
+## Training vs Test data distribution
 
-    Class Training Test
-    Angry	  600	  60
-    bored	  800	  50
-    Engaged	850	  70
-    Neutral	750	  65
+## Data Cleaning Process
 
+### Type Conversion
 
-## Data Cleaning Process for Facial Expression Recognition
+### Filter
 
-### Labeling
+### Merge
 
-### Resizing Images
-All images are resized to a standard dimension to ensure consistency across the dataset.
-
-```python
-from keras.preprocessing.image import ImageDataGenerator
-
-# Assuming images are in a directory 'data/train'
-datagen = ImageDataGenerator(rescale=1./255)
-
-# Standard dimensions for all images
-standard_size = (150, 150)
-
-# Generator will resize images automatically
-train_generator = datagen.flow_from_directory(
-    'data/train',
-    target_size=standard_size,
-    color_mode='grayscale', # Convert images to grayscale
-    batch_size=32,
-    class_mode='categorical'
-)
-```
-### Grayscale Conversion
-
-Images are converted to grayscale to focus on the important features without the distraction of color.
-### Brightness Normalization
-
-Uniform lighting conditions are applied to images to mitigate the effects of varying illumination.
-
-```
-# Additional configuration for ImageDataGenerator to adjust brightness
-
-datagen = ImageDataGenerator(
-    rescale=1./255,
-    brightness_range=[0.8,1.2] # Adjust brightness
-)
-```
 ### Cropping
-
-Images are cropped to remove background noise and focus on the face, the most important part for emotion detection.
 
 ## Class Distribution
 
-## Sample Images
+## Sample data
 
-## Pixel Intensity Distribution
+## Weather distribution/trips
 
 
