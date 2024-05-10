@@ -5,9 +5,9 @@
 Solve the supply and demand curve. Here, supply is the number of bikes in a station and a number of users which is the demand for a given day or even hour. It is essentially a supply meets demand problem.
 
 <details>
-  <summary><h2>Contents</h2></summary>
+  <h2>Contents</h2>
   
-  - [Classification Labels](#classification-labels)
+  - [Regression Level](#Target-Feature)
 
   - [Data Collection & Preprocessing](#data-collection--preprocessing)
     - [Dataset Summary](#dataset-summary)
@@ -48,8 +48,9 @@ Solve the supply and demand curve. Here, supply is the number of bikes in a stat
   - [Conclusion and Future Work](#conclusion-and-future-work)
 </details>
 
-## Classification Labels
+# Target Feature
 
+- Number of trips per day
 
 # Data Collection & Preprocessing
 
@@ -57,8 +58,8 @@ Solve the supply and demand curve. Here, supply is the number of bikes in a stat
 ## Dataset Summary
 Here is a summary of the datasets used in the project:
 
-    BIXI - Movements history 2017
-        Total row: ~4018722
+    BIXI - Movements history 2014 to 2017
+        Total row: ~4018722 * 4
         Column: 6
         Features: start_date, start_station_code ,end_date , end_station_code, duration_sec, is_member
         Source: https://bixi.com/en/open-data/
@@ -71,20 +72,82 @@ Here is a summary of the datasets used in the project:
 
 ## Training vs Test data distribution
 
+ - 2014 to 2016 bike uses data is used for training and corresponding weather data
+- 2017 bike uses data is used for testing and corresponding weather data
+
 ## Data Cleaning Process
 
 ### Type Conversion
 
+ 1. Convert the start_date and end_date to datetime format
+
 ### Filter
+
+  1. Filter the data weather data for the only city of Montreal
 
 ### Merge
 
-### Cropping
+  1. Merge the bike data with the weather data based on the start_date
 
-## Class Distribution
+### Imputing missing values
+
+  1. Impute the missing values in the weather data using the mean , meadian or mode of the column
+
+### Droping rows
+
+  1. Drop the rows with missing values in the bike data
+
+## Data distribution
 
 ## Sample data
 
-## Weather distribution/trips
+ See notebooks/data_exploration.ipynb
+
+# Feature Engineering
+
+## Feature Extraction
+
+  1. Extract the features from the date column like num_week, weekday, hour
+
+## Feature Selection
+
+  1. Group by the data based on the num_week, weekday, hour
+  2. Calculate the number of trips per day based on the group
+  3. Drop the columns which are not required for the model
+
+## Feature Transformation
+
+  1. Level encoding for the categorical column Description of the weather
+  2. Normalization of the train and test data using MinMaxScaler
+
+# Model Selection
+
+## Model & Training
+
+## Model
+
+  1. Linear Regression
+
+## Training
+
+  1. Train the model using the training data
+  2. Predict the number of trips per day using the test data
+
+## Model Evaluation
+
+  1. Calculate the MSE value for the model
+
+
+### TODO
+
+- [ ] Prototype the model using streamlit
+- [ ] Develop FastAPI for the model
+- [ ] Automate the using docker
+
+
+
+
+
+
 
 
