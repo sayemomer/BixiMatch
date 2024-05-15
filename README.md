@@ -4,6 +4,12 @@
 
 Solve the supply and demand curve. Here, supply is the number of bikes in a station and a number of users which is the demand for a given day or even hour. It is essentially a supply meets demand problem. The goal is to predict the number of bikes in a station for a given day or hour.
 
+- Predict the number of trips per day
+- Predict the number of bikes in a station for a given day or hour
+
+
+![beta_image](images/beta.png)
+
 # How to run the project
 
 ## Prerequisites
